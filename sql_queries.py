@@ -11,7 +11,8 @@ def sql_graph_ethereum(addresses,limit,rank_by):
     WITH 
     tokens_from AS
     ( 
-        SELECT  symbol, 
+        SELECT  symbol,
+                decimals, 
                 amount, 
                 amount_usd, 
                 tx_hash, 
@@ -24,7 +25,8 @@ def sql_graph_ethereum(addresses,limit,rank_by):
   
     tokens_to AS
     ( 
-        SELECT  symbol, 
+        SELECT  symbol,
+                decimals, 
                 amount, 
                 amount_usd, 
                 tx_hash, 
@@ -37,7 +39,8 @@ def sql_graph_ethereum(addresses,limit,rank_by):
  
     eth_from AS
     ( 
-        SELECT  'ETH' AS symbol, 
+        SELECT  'ETH' AS symbol,
+                18 AS decimals, 
                 amount, 
                 amount_usd, 
                 tx_hash, 
@@ -50,7 +53,8 @@ def sql_graph_ethereum(addresses,limit,rank_by):
   
     eth_to AS
     ( 
-        SELECT  'ETH' AS symbol, 
+        SELECT  'ETH' AS symbol,
+                18 AS decimals, 
                 amount, 
                 amount_usd, 
                 tx_hash, 
