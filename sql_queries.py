@@ -100,8 +100,8 @@ def sql_labels_ethereum(addresses):
 def sql_contracts_ethereum(addresses):
     
     sql_query = f"""
-    SELECT contract_address as address, name, symbol as label
-    FROM ethereum.core.dim_contracts_extended
+    SELECT address, name, symbol as label
+    FROM ethereum.core.dim_contracts
     WHERE lower(address) IN {to_lowercase_tuple(addresses)}
     """
     return sql_query

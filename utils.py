@@ -3,7 +3,6 @@ import networkx as nx
 import pyvis as pv
 import copy
 from pyvis.network import Network
-from shroomdk import ShroomDK
 from urllib.request import Request, urlopen
 from sql_queries import sql_labels_ethereum, sql_graph_ethereum, sql_contracts_ethereum
 
@@ -27,7 +26,7 @@ def grow_df(seed_addresses,
     Args:
         seed_addresses: list of addresses of interest
         nogrow_addresses: list of addresses that we won't query (i.e we aren't interested in finding other transactions related to these addresses)
-        sdk: shroom sdk object
+        sdk: flipside api instance
         address_label_dict: dictionary with addresses as keys and labels as values for any previous state of the graph
         contracts: list of addresses already confirmed to be contract addresses (don't want to continue to grow the graph from these as there are likely too many irrelevant connections)
         df: pandas.DataFrame() object from previous version of the graph
